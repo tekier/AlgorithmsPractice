@@ -1,5 +1,4 @@
 C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\Strings\bin\Debug\Strings.dll
 C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\Strings\bin\Debug\Strings.pdb
-C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\Strings\obj\Debug\Strings.csprojResolveAssemblyReference.cache
 C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\Strings\obj\Debug\Strings.dll
 C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\Strings\obj\Debug\Strings.pdb

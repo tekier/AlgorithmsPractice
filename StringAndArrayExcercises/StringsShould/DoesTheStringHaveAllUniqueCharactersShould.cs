@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using FluentAssertions;
+﻿using FluentAssertions;
 using NUnit.Framework;
 using Strings;
 
@@ -38,6 +33,14 @@ namespace StringsTests
         public void CorrectlyCompleteCheckByBitVector(string input, bool expectedOutput)
         {
             bool actualOutput = _uniquityChecker.CheckUsingBitVector(input);
+            (actualOutput == expectedOutput).Should().BeTrue();
+        }
+
+        [TestCase("abcdefghijkl", true)]
+        [TestCase("aberthiuqwlrpoz", false)]
+        public void CorrectlyCompleteCheckByUsingSortedAdjacencySearch(string input, bool expectedOutput)
+        {
+            bool actualOutput = _uniquityChecker.CheckingUsingSortedAdjacencySearch(input);
             (actualOutput == expectedOutput).Should().BeTrue();
         }
     }

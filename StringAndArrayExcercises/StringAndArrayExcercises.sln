@@ -7,7 +7,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "StringExcercises", "StringE
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Strings", "Strings\Strings.csproj", "{E7794484-AE83-4430-8061-866A353EC0E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsShould", "StringsShould\StringsShould.csproj", "{F81B14D2-8D36-45D0-BA92-876BEC93640D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StringsTests", "StringsShould\StringsTests.csproj", "{F81B14D2-8D36-45D0-BA92-876BEC93640D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

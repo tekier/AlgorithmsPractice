@@ -96,6 +96,28 @@ namespace Strings
             return true;
         }
 
-        
+        /**
+         * @ CheckUsingSortedStringAdjacencySearch(string => bool)
+         * 
+         * This is O(n) with no extra space requirment. Sort the string and look for 
+         * adjacent characters that are the same.
+         *"throwing" -> "hrowingt"
+         * (+) Very fast
+         * (-) Assumes sorting algorithm has constant SPACE complexity
+         */
+
+        public bool CheckingUsingSortedAdjacencySearch(string input)
+        {
+            var sorted = input.ToCharArray();
+            Array.Sort(sorted);
+
+            for (int i = 0; i < input.Length - 1; i++)
+            {
+                if (sorted[i] == sorted[i + 1])
+                    return false;
+            }
+
+            return true;
+        }
     }
 }
