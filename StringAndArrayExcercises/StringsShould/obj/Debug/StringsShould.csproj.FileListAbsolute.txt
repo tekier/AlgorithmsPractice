@@ -1,0 +1,15 @@
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\StringsShould.dll
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\StringsShould.pdb
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\FluentAssertions.Core.dll
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\FluentAssertions.dll
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\nunit.framework.dll
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\Strings.dll
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\Strings.pdb
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\FluentAssertions.pdb
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\FluentAssertions.xml
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\FluentAssertions.Core.pdb
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\FluentAssertions.Core.xml
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\bin\Debug\nunit.framework.xml
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\obj\Debug\StringsShould.csprojResolveAssemblyReference.cache
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\obj\Debug\StringsShould.dll
+C:\Users\Tawqir.Sohail\Source\Repos\AlgorithmsPractice\StringAndArrayExcercises\StringsShould\obj\Debug\StringsShould.pdb
