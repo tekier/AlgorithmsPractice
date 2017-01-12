@@ -42,6 +42,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="DoesTheStringHaveAllUniqueCharacters.cs" />
+    <Compile Include="Permutations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReplaceSpacesWithString.cs" />
     <Compile Include="StringRotationDetector.cs" />
