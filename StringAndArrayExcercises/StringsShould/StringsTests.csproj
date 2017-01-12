@@ -54,6 +54,7 @@
   <ItemGroup>
     <Compile Include="DoesTheStringHaveAllUniqueCharactersShould.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReplaceSpacesWithStringShould.cs" />
     <Compile Include="StringRotationDetectorShould.cs" />
   </ItemGroup>
   <ItemGroup>
