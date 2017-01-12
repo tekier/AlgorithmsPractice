@@ -28,6 +28,8 @@ namespace Tests
         [TestCase("asdflj")]
         [TestCase("8 8 9")]
         [TestCase("5 5 O")]
+        [TestCase("R W X")]
+        [TestCase("")]
         public void InvalidateIncorrectlyFormattedUserInputs(string userInput)
         {
             bool isValid = _validatorObject.ValidateInput(userInput);
