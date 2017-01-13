@@ -15,5 +15,11 @@ namespace Tests
             parsedMove.Should().Be(expectedMove);
         }
 
+        [TestCase("0 0 X", 0, 0)]
+        public void ParseCoordinatesCorrectly(string input, int row, int column)
+        {
+            
+        }
+
     }
 }

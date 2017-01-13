@@ -43,10 +43,12 @@
   <ItemGroup>
     <Compile Include="Game.cs" />
     <Compile Include="Grid.cs" />
+    <Compile Include="InvalidMove.cs" />
     <Compile Include="MoveParser.cs" />
     <Compile Include="Moves.cs" />
+    <Compile Include="PlayerTracker.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Validator.cs" />
+    <Compile Include="MoveValidator.cs" />
     <Compile Include="WinChecker.cs" />
   </ItemGroup>
   <ItemGroup>

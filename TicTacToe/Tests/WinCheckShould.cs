@@ -7,14 +7,6 @@ namespace Tests
     [TestFixture]
     public class WinCheckShould
     {
-        private WinChecker _checker;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _checker = new WinChecker();
-        }
-
         [TestCase(
              new[]
              {
@@ -23,7 +15,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyForHorizantalXInputFirstThree(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -35,7 +27,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyForHorizantalOInputFirstThree(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -47,7 +39,7 @@ namespace Tests
              })]
         public void DetectLossCorrectlyForHorizantalOInput1(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeFalse();
         }
 
@@ -59,7 +51,7 @@ namespace Tests
              })]
         public void DetectLossCorrectlyForHorizantalXInput1(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeFalse();
         }
 
@@ -71,7 +63,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyForHorizantalXInput2(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -83,7 +75,7 @@ namespace Tests
              })]
         public void DetectLossCorrectlyForHorizantalMixedInput2(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeFalse();
         }
 
@@ -95,7 +87,7 @@ namespace Tests
              })]
         public void DetectLossCorrectlyForHorizantalXInput3(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeFalse();
         }
 
@@ -107,7 +99,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyForHorizantalXInput3(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -119,7 +111,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyFoVerticalXInput1(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -131,7 +123,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyFoVerticalOInput2(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -143,7 +135,7 @@ namespace Tests
              })]
         public void DetectLossCorrectlyFoVerticalMixedInput(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeFalse();
         }
 
@@ -155,7 +147,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyFoVerticalXInput3(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -167,7 +159,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyFoDiagonalXInput1(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 
@@ -179,7 +171,7 @@ namespace Tests
              })]
         public void DetectWinCorrectlyFoDiagonalOInput2(Moves[] input)
         {
-            var what = _checker.HasWon(input);
+            var what = WinChecker.HasWon(input);
             what.Should().BeTrue();
         }
 

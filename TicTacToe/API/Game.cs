@@ -5,18 +5,14 @@ namespace API
     public static class Game
     {
         private static readonly Grid GameGrid;
-        private static readonly WinChecker WinChecker;
 
         static Game()
         {
             GameGrid = new Grid();
-            WinChecker = new WinChecker();
         }
 
-        public static bool HasNotBeenWon(int numberOfMoves)
+        public static bool HasNotBeenWon()
         {
-            if (numberOfMoves > 8)
-                return false;
             var gridToCheckWin = GameGrid.GetGrid();
             return !WinChecker.HasWon(gridToCheckWin);
         }
@@ -33,7 +29,7 @@ namespace API
             if(moveToAdd == Moves.X)
                 GameGrid.InsertX(positionOnGrid.Item1, positionOnGrid.Item2);
             if(moveToAdd == Moves.O)
-                GameGrid.InsertO(positionOnGrid.Item2, positionOnGrid.Item2);
+                GameGrid.InsertO(positionOnGrid.Item1, positionOnGrid.Item2);
         }
 
         public static void PrintGrid()

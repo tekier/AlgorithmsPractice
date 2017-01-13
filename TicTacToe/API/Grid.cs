@@ -48,7 +48,10 @@ namespace API
         {
             for (short position = 0; position < short.Parse(ConfigurationManager.AppSettings["grid size"]); position++)
             {
-                Console.Write($" [{_gameGrid[position]}]" + ((position + 1)%3 == 0 ? "\n" : ""));
+                string valueToPrint = _gameGrid[position] == Moves.Blank
+                    ? "\t[ ]" + ((position + 1)%3 == 0 ? "\n\n" : "")
+                    : $"\t[{_gameGrid[position]}]" + ((position + 1)%3 == 0 ? "\n\n" : "");
+                Console.Write(valueToPrint);
             }
         }
     }

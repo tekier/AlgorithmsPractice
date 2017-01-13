@@ -7,21 +7,14 @@ namespace Tests
     [TestFixture]
     public class ValidatorShould
     {
-        private Validator _validatorObject;
-
-        [SetUp]
-        public void SetUp()
-        {
-            _validatorObject = new Validator();
-        }
 
         [TestCase("0 0 X")]
         [TestCase("1 1 X")]
         [TestCase("2 2 O")]
         public void ValidateCorrectlyFormattedUserInputs(string userInput)
         {
-            bool isValid = _validatorObject.ValidateInput(userInput);
-            isValid.Should().BeTrue();
+            var isValid = MoveValidator.ValidateInput(userInput);
+            isValid.Should().Be(InvalidMove.MoveIsValid);
         }
 
         [TestCase("red")]
@@ -32,8 +25,8 @@ namespace Tests
         [TestCase("")]
         public void InvalidateIncorrectlyFormattedUserInputs(string userInput)
         {
-            bool isValid = _validatorObject.ValidateInput(userInput);
-            isValid.Should().BeFalse();
+            var isValid = MoveValidator.ValidateInput(userInput);
+            isValid.Should().Be(InvalidMove.IncorrectFormatError);
         }
 
     }
