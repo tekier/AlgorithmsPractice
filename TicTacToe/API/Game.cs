@@ -1,31 +1,44 @@
-﻿namespace API
+﻿using System;
+
+namespace API
 {
-    public class Game
+    public static class Game
     {
-        private Grid _gameGrid;
-        private WinChecker _winChecker;
+        private static readonly Grid GameGrid;
+        private static readonly WinChecker WinChecker;
 
-        public Game()
+        static Game()
         {
-            _gameGrid = new Grid();
+            GameGrid = new Grid();
+            WinChecker = new WinChecker();
         }
-
 
         public static bool HasNotBeenWon(int numberOfMoves)
         {
-            if (numberOfMoves > 9)
+            if (numberOfMoves > 8)
                 return false;
-            throw new System.NotImplementedException();
+            var gridToCheckWin = GameGrid.GetGrid();
+            return !WinChecker.HasWon(gridToCheckWin);
         }
 
         public static void Apply(string userInput)
         {
-            throw new System.NotImplementedException();
+            Moves moveToAdd = MoveParser.ExtractMove(userInput);
+            Tuple<short,short> positionOnGrid = MoveParser.GetCoordinates(userInput);
+            InsertToGrid(positionOnGrid, moveToAdd);
+        }
+
+        private static void InsertToGrid(Tuple<short, short> positionOnGrid, Moves moveToAdd)
+        {
+            if(moveToAdd == Moves.X)
+                GameGrid.InsertX(positionOnGrid.Item1, positionOnGrid.Item2);
+            if(moveToAdd == Moves.O)
+                GameGrid.InsertO(positionOnGrid.Item2, positionOnGrid.Item2);
         }
 
         public static void PrintGrid()
         {
-            
+            GameGrid.PrettyPrint();
         }
     }
 }

@@ -66,7 +66,7 @@ namespace Tests
         public void AddXToGridCorrectly(int row, int column, Moves[] expectedGrid)
         {
             _testGrid.InsertX(row, column);
-            Assert.AreEqual(_testGrid.GameGrid, expectedGrid);
+            Assert.AreEqual(_testGrid.GetGrid(), expectedGrid);
         }
 
         [TestCase(1, 1,
@@ -78,7 +78,7 @@ namespace Tests
         public void AddOToGridCorrectly(int row, int column, Moves[] expectedGrid)
         {
             _testGrid.InsertO(row, column);
-            Assert.AreEqual(_testGrid.GameGrid, expectedGrid);
+            Assert.AreEqual(_testGrid.GetGrid(), expectedGrid);
         }
     }
 }

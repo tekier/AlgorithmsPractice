@@ -1,15 +1,15 @@
-﻿using System.Configuration;
+﻿using System;
+using System.Configuration;
 
 namespace API
 {
     public class Grid
     {
-        public Moves[] GameGrid { get; set; }
-        private static readonly short GridSize = short.Parse(ConfigurationManager.AppSettings["grid size"]);
+        private readonly Moves[] _gameGrid;
 
         public Grid()
         {
-            GameGrid = new[]
+            _gameGrid = new[]
             {
                 Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
                 Moves.Blank
@@ -18,12 +18,13 @@ namespace API
 
         private int CalculatePosition(int row, int column)
         {
-            return column + row*(GridSize/3);
+            short gridSize = short.Parse(ConfigurationManager.AppSettings["grid size"]);
+            return column + row*(gridSize/3);
         }
 
         private void Add(int position, Moves move)
         {
-            GameGrid[position] = move;
+            _gameGrid[position] = move;
         }
 
         public void InsertX(int row, int column)
@@ -36,6 +37,19 @@ namespace API
         {
             int position = CalculatePosition(row, column);
             Add(position, Moves.O);
+        }
+
+        public Moves[] GetGrid()
+        {
+            return _gameGrid;
+        }
+
+        public void PrettyPrint()
+        {
+            for (short position = 0; position < short.Parse(ConfigurationManager.AppSettings["grid size"]); position++)
+            {
+                Console.Write($" [{_gameGrid[position]}]" + ((position + 1)%3 == 0 ? "\n" : ""));
+            }
         }
     }
 }

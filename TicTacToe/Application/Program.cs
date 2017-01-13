@@ -5,49 +5,38 @@ namespace Application
 {
     class Program
     {
-        private static Validator _validator = new Validator();
+        private static readonly Validator _validator = new Validator();
         static void Main()
         {
-            Welcome();
-            string userInput = Console.ReadLine();
-            while (!_validator.ValidateInput(userInput))
+            Console.WriteLine("Welcome to this 2 player tictactoe game.\nMoves should be in the format[row][coloumn][X / O]\n");
+            Console.WriteLine("Enter move in format [row] [column] [X/O]\n");
+            short numberOfMovesSoFar = 0;
+            while (Game.HasNotBeenWon(numberOfMovesSoFar))
             {
-                userInput = NewMethod();
-            }
-            while (Game.HasNotBeenWon(8))
-            {
+                string userInput;
+                GetUserInput(out userInput);
                 Game.Apply(userInput);
+                numberOfMovesSoFar++;
+                Console.WriteLine($"\nNumber of moves made so far : {numberOfMovesSoFar}");
                 Game.PrintGrid();
             }
+            Console.WriteLine($"\nGame exhausted - {numberOfMovesSoFar} moves made");
             Console.Read();
         }
 
-        private static string NewMethod()
+        private static void GetUserInput(out string userInput)
         {
-            string userInput;
-            ErrorMessage();
             userInput = Console.ReadLine();
-            return userInput;
+            while (!_validator.ValidateInput(userInput))
+            {
+                RetryGettingUserInput(ref userInput);
+            }
         }
 
-        private static void ErrorMessage()
+        private static void RetryGettingUserInput(ref string userInput)
         {
-            Console.WriteLine("Reenter in correct format . . .");
-            Console.WriteLine();
-        }
-
-        private static void Welcome()
-        {
-            Console.WriteLine("Welcome to this 2 player tictactoe game.");
-            Console.WriteLine("Moves should be in the format [row] [coloumn] [X/O]");
-            Console.WriteLine();
-            TurnPromptMessage();
-        }
-
-        private static void TurnPromptMessage()
-        {
-            Console.WriteLine("Enter move in format [row] [column] [X/O]");
-            Console.WriteLine();
+            Console.WriteLine("Reenter in correct format . . .\n");
+            userInput = Console.ReadLine();
         }
     }
 }
