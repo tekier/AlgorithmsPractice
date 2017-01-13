@@ -63,9 +63,21 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
                  Moves.X
              })]
-        public void AddToGridCorrectly(int row, int column, Moves[] expectedGrid)
+        public void AddXToGridCorrectly(int row, int column, Moves[] expectedGrid)
         {
             _testGrid.InsertX(row, column);
+            Assert.AreEqual(_testGrid.GameGrid, expectedGrid);
+        }
+
+        [TestCase(1, 1,
+             new[]
+             {
+                 Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.O, Moves.Blank, Moves.Blank, Moves.Blank,
+                 Moves.Blank
+             })]
+        public void AddOToGridCorrectly(int row, int column, Moves[] expectedGrid)
+        {
+            _testGrid.InsertO(row, column);
             Assert.AreEqual(_testGrid.GameGrid, expectedGrid);
         }
     }
