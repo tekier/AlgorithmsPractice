@@ -5,7 +5,7 @@ namespace API
 {
     public class Grid
     {
-        private readonly Moves[] _gameGrid;
+        private static Moves[] _gameGrid;
 
         public Grid()
         {
@@ -44,7 +44,7 @@ namespace API
             return _gameGrid;
         }
 
-        public void PrettyPrint()
+        public static void PrettyPrint()
         {
             for (short position = 0; position < short.Parse(ConfigurationManager.AppSettings["grid size"]); position++)
             {
@@ -53,6 +53,11 @@ namespace API
                     : $"\t[{_gameGrid[position]}]" + ((position + 1)%3 == 0 ? "\n\n" : "");
                 Console.Write(valueToPrint);
             }
+        }
+
+        public Moves GetValueAt(short item1, short item2)
+        {
+            return _gameGrid[CalculatePosition(item1, item2)];
         }
     }
 }

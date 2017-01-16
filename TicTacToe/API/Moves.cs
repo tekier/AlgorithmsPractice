@@ -2,6 +2,6 @@
 {
     public enum Moves
     {
-        X, O, Blank
+        X, O, Blank, None
     }
 }

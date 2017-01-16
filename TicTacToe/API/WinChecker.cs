@@ -1,10 +1,15 @@
-﻿namespace API
+﻿using System;
+
+namespace API
 {
     public static class WinChecker
     {
-        public static bool HasWon(Moves[] input)
+        public static bool HasWon(Moves[] input, Moves lastMove)
         {
-            return HorizantalWin(input) || VerticalWin(input) || DiagonalWin(input);
+            bool win = HorizantalWin(input) || VerticalWin(input) || DiagonalWin(input);
+            if (win)
+                Console.WriteLine($"\n{lastMove} Won!!!!!\n");
+            return win;
         }
 
         private static bool DiagonalWin(Moves[] input)

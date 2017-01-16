@@ -10,16 +10,17 @@ namespace Application
             Console.WriteLine("Welcome to this 2 player tictactoe game.\nMoves should be in the format[row][coloumn][X / O]\n");
             Console.WriteLine("Enter move in format [row] [column] [X/O]\n");
 
-            while (Game.HasNotBeenWon())
+            while (Game.HasNotBeenWon() && Game.HasNotBeenDrawn())
             {
                 string userInput;
                 GetUserInput(out userInput);
                 Game.Apply(userInput);
-                Console.WriteLine($"\nNumber of moves made so far : {5}");
+                int numberOfMovesSoFar = Game.GetNumberOfMoves();
+                Console.WriteLine($"\nNumber of moves made so far : {numberOfMovesSoFar}");
                 Game.PrintGrid();
             }
 
-            Console.WriteLine($"\nGame exhausted - {5} moves made");
+            Console.WriteLine($"\nGame exhausted - {Game.GetNumberOfMoves()} moves made");
             Console.Read();
         }
 
