@@ -27,7 +27,7 @@ namespace API
         private static void CheckAndUpdateGrid(Moves moveToAdd, Tuple<short, short> positionOnGrid)
         {
             if (TurnValidator.ThisMoveIsNotSameAsLastMove(_lastMove, moveToAdd) == InvalidMove.MoveIsValid &&
-                !TurnValidator.CurrentMoveIsOverwrite(positionOnGrid))
+                TurnValidator.CurrentMoveIsOverwrite(positionOnGrid) == InvalidMove.MoveIsValid)
             {
                 GridUpdater.InsertIntoGrid(positionOnGrid, moveToAdd);
                 _lastMove = moveToAdd;

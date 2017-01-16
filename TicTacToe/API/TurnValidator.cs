@@ -22,14 +22,14 @@ namespace API
             return _numberOfTurnsSoFar;
         }
 
-        public static bool CurrentMoveIsOverwrite(Tuple<short, short> positionOnGrid)
+        public static InvalidMove CurrentMoveIsOverwrite(Tuple<short, short> positionOnGrid)
         {
             if (GridUpdater.GetValueAt(positionOnGrid) != Moves.Blank)
             {
                 Console.WriteLine("\nThat position is filled, try one of the blanks...\n");
-                return true;
+                return InvalidMove.PositionAlreadyFilledError;
             }
-            return false;
+            return InvalidMove.MoveIsValid;
         }
     }
 }

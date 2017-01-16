@@ -21,5 +21,13 @@ namespace Tests
             InvalidMove areSame = TurnValidator.ThisMoveIsNotSameAsLastMove(previousMove, newMove);
             areSame.Should().Be(InvalidMove.MoveIsValid);
         }
+
+        [Test]
+        public void ShouldHaveExpectedNumberOfMovesMade()
+        {
+            TurnValidator.GetNumberOfMovesSoFar().Should().Be(0);
+            TurnValidator.ThisMoveIsNotSameAsLastMove(Moves.None, Moves.Blank);
+            TurnValidator.GetNumberOfMovesSoFar().Should().Be(1);
+        }
     }
 }
