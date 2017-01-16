@@ -33,7 +33,6 @@ namespace Application
                 Console.WriteLine("Reenter in correct format . . .\n");
             }
         }
-
         private static void RetryGettingUserInput(ref string userInput)
         {
             userInput = Console.ReadLine();

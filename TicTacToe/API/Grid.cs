@@ -9,41 +9,35 @@ namespace API
 
         public Grid()
         {
-            _gameGrid = new[]
+            _gameGrid = new Moves[9];
+            for (int index = 0; index < 9; index++)
             {
-                Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
-                Moves.Blank
-            };
+                _gameGrid[index] = Moves.Blank;
+            }
         }
-
         private int CalculatePosition(int row, int column)
         {
             short gridSize = short.Parse(ConfigurationManager.AppSettings["grid size"]);
             return column + row*(gridSize/3);
         }
-
         private void Add(int position, Moves move)
         {
             _gameGrid[position] = move;
         }
-
         public void InsertX(int row, int column)
         {
             int position = CalculatePosition(row, column);
             Add(position, Moves.X);
         }
-
         public void InsertO(int row, int column)
         {
             int position = CalculatePosition(row, column);
             Add(position, Moves.O);
         }
-
         public Moves[] GetGrid()
         {
             return _gameGrid;
         }
-
         public static void PrettyPrint()
         {
             for (short position = 0; position < short.Parse(ConfigurationManager.AppSettings["grid size"]); position++)
@@ -54,7 +48,6 @@ namespace API
                 Console.Write(valueToPrint);
             }
         }
-
         public Moves GetValueAt(short item1, short item2)
         {
             return _gameGrid[CalculatePosition(item1, item2)];

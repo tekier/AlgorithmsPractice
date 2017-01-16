@@ -23,36 +23,28 @@ namespace API
         private static bool VerticalWin(Moves[] input)
         {
             for (int index = 0; index < 3; index++)
-            {
                 if (CheckVertical(input, index)) return true;
-            }
             return false;
         }
 
         private static bool CheckVertical(Moves[] input, int index)
         {
             if (input[index] == input[index + 3] && input[index + 3] == input[index + 6] && input[index] != Moves.Blank)
-            {
                 return true;
-            }
             return false;
         }
 
         private static bool HorizantalWin(Moves[] input)
         {
             for (int index = 0; index < 7; index += 3)
-            {
                 if (CheckHorizantal(input, index)) return true;
-            }
             return false;
         }
 
         private static bool CheckHorizantal(Moves[] input, int index)
         {
             if (input[index] == input[index + 1] && input[index + 1] == input[index + 2] && input[index] != Moves.Blank)
-            {
                 return true;
-            }
             return false;
         }
     }
