@@ -1,5 +1,4 @@
-﻿using System;
-using System.Configuration;
+﻿using System.Configuration;
 
 namespace API
 {
@@ -7,50 +6,20 @@ namespace API
     {
         private static Moves[] _gameGrid;
 
+        public Moves[] GameGrid
+        {
+            get { return _gameGrid; }
+            set { _gameGrid = value; }
+        }
+
         public Grid()
         {
-            _gameGrid = new Moves[9];
-            for (int index = 0; index < 9; index++)
+            short size = short.Parse(ConfigurationManager.AppSettings["grid size"]);
+            _gameGrid = new Moves[size];
+            for (int index = 0; index < size; index++)
             {
                 _gameGrid[index] = Moves.Blank;
             }
-        }
-        private int CalculatePosition(int row, int column)
-        {
-            short gridSize = short.Parse(ConfigurationManager.AppSettings["grid size"]);
-            return column + row*(gridSize/3);
-        }
-        private void Add(int position, Moves move)
-        {
-            _gameGrid[position] = move;
-        }
-        public void InsertX(int row, int column)
-        {
-            int position = CalculatePosition(row, column);
-            Add(position, Moves.X);
-        }
-        public void InsertO(int row, int column)
-        {
-            int position = CalculatePosition(row, column);
-            Add(position, Moves.O);
-        }
-        public Moves[] GetGrid()
-        {
-            return _gameGrid;
-        }
-        public static void PrettyPrint()
-        {
-            for (short position = 0; position < short.Parse(ConfigurationManager.AppSettings["grid size"]); position++)
-            {
-                string valueToPrint = _gameGrid[position] == Moves.Blank
-                    ? "\t[ ]" + ((position + 1)%3 == 0 ? "\n\n" : "")
-                    : $"\t[{_gameGrid[position]}]" + ((position + 1)%3 == 0 ? "\n\n" : "");
-                Console.Write(valueToPrint);
-            }
-        }
-        public Moves GetValueAt(short item1, short item2)
-        {
-            return _gameGrid[CalculatePosition(item1, item2)];
         }
     }
 }

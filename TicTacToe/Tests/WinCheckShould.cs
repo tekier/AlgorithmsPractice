@@ -13,9 +13,9 @@ namespace Tests
                  Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectWinCorrectlyForHorizantalXInputFirstThree(Moves[] input)
+        public void DetectWinCorrectlyForHorizantalXInputFirstThree(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -25,9 +25,9 @@ namespace Tests
                  Moves.O, Moves.O, Moves.O, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectWinCorrectlyForHorizantalOInputFirstThree(Moves[] input)
+        public void DetectWinCorrectlyForHorizantalOInputFirstThree(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -37,9 +37,9 @@ namespace Tests
                  Moves.Blank, Moves.O, Moves.O, Moves.O, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectLossCorrectlyForHorizantalOInput1(Moves[] input)
+        public void DetectLossCorrectlyForHorizantalOInput1(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeFalse();
         }
 
@@ -49,9 +49,9 @@ namespace Tests
                  Moves.Blank, Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectLossCorrectlyForHorizantalXInput1(Moves[] input)
+        public void DetectLossCorrectlyForHorizantalXInput1(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeFalse();
         }
 
@@ -61,9 +61,9 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.Blank, Moves.X, Moves.X, Moves.X, Moves.Blank, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectWinCorrectlyForHorizantalXInput2(Moves[] input)
+        public void DetectWinCorrectlyForHorizantalXInput2(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -73,9 +73,9 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.Blank, Moves.O, Moves.X, Moves.X, Moves.Blank, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectLossCorrectlyForHorizantalMixedInput2(Moves[] input)
+        public void DetectLossCorrectlyForHorizantalMixedInput2(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeFalse();
         }
 
@@ -85,9 +85,9 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.X, Moves.X, Moves.X, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectLossCorrectlyForHorizantalXInput3(Moves[] input)
+        public void DetectLossCorrectlyForHorizantalXInput3(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeFalse();
         }
 
@@ -97,9 +97,9 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.Blank, Moves.X, Moves.X,
                  Moves.X
              })]
-        public void DetectWinCorrectlyForHorizantalXInput3(Moves[] input)
+        public void DetectWinCorrectlyForHorizantalXInput3(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -109,9 +109,9 @@ namespace Tests
                  Moves.X, Moves.Blank, Moves.Blank, Moves.X, Moves.Blank, Moves.Blank, Moves.X, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectWinCorrectlyFoVerticalXInput1(Moves[] input)
+        public void DetectWinCorrectlyFoVerticalXInput1(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -121,9 +121,9 @@ namespace Tests
                  Moves.Blank, Moves.O, Moves.Blank, Moves.Blank, Moves.O, Moves.Blank, Moves.Blank, Moves.O,
                  Moves.Blank
              })]
-        public void DetectWinCorrectlyFoVerticalOInput2(Moves[] input)
+        public void DetectWinCorrectlyFoVerticalOInput2(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -133,9 +133,9 @@ namespace Tests
                  Moves.X, Moves.X, Moves.O, Moves.O, Moves.Blank, Moves.Blank, Moves.X, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectLossCorrectlyFoVerticalMixedInput(Moves[] input)
+        public void DetectLossCorrectlyFoVerticalMixedInput(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeFalse();
         }
 
@@ -145,9 +145,9 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.X, Moves.Blank, Moves.Blank, Moves.X, Moves.Blank, Moves.Blank,
                  Moves.X
              })]
-        public void DetectWinCorrectlyFoVerticalXInput3(Moves[] input)
+        public void DetectWinCorrectlyFoVerticalXInput3(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -157,9 +157,9 @@ namespace Tests
                  Moves.X, Moves.Blank, Moves.Blank, Moves.Blank, Moves.X, Moves.Blank, Moves.Blank, Moves.Blank,
                  Moves.X
              })]
-        public void DetectWinCorrectlyFoDiagonalXInput1(Moves[] input)
+        public void DetectWinCorrectlyFoDiagonalXInput1(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 
@@ -169,9 +169,9 @@ namespace Tests
                  Moves.Blank, Moves.Blank, Moves.O, Moves.Blank, Moves.O, Moves.Blank, Moves.O, Moves.Blank,
                  Moves.Blank
              })]
-        public void DetectWinCorrectlyFoDiagonalOInput2(Moves[] input)
+        public void DetectWinCorrectlyFoDiagonalOInput2(Moves[] input, Moves mockLastMove = Moves.None)
         {
-            var what = WinChecker.HasWon(input);
+            var what = WinChecker.HasWon(input, mockLastMove);
             what.Should().BeTrue();
         }
 

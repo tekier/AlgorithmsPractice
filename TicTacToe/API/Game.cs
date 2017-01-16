@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Globalization;
 
 namespace API
 {
@@ -36,7 +35,7 @@ namespace API
         }
         public static void PrintGrid()
         {
-            Grid.PrettyPrint();
+            GridUpdater.PrettyPrint();
         }
         public static int GetNumberOfMoves()
         {
