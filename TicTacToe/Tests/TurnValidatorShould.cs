@@ -5,29 +5,21 @@ using NUnit.Framework;
 namespace Tests
 {
     [TestFixture]
-    public class TurnValidatorShould
+    internal class TurnValidatorShould
     {
         [TestCase(Moves.X, Moves.X)]
         [TestCase(Moves.O, Moves.O)]
         public void CorrectlyDetectConsectiveMovesThatAreTheSame(Moves previousMove, Moves newMove)
         {
-            InvalidMove areSame = TurnValidator.ThisMoveIsNotSameAsLastMove(previousMove, newMove);
-            areSame.Should().Be(InvalidMove.SameMoveAsPreviousMoveError);
+            MoveCategory areSame = TurnValidator.ThisMoveIsNotSameAsLastMove(previousMove, newMove);
+            areSame.Should().Be(MoveCategory.SameMoveAsPreviousMoveError);
         }
         [TestCase(Moves.X, Moves.O)]
         [TestCase(Moves.O, Moves.X)]
         public void CorrectlyDetectConsectiveMovesThatAreTheDifferent(Moves previousMove, Moves newMove)
         {
-            InvalidMove areSame = TurnValidator.ThisMoveIsNotSameAsLastMove(previousMove, newMove);
-            areSame.Should().Be(InvalidMove.MoveIsValid);
-        }
-
-        [Test]
-        public void ShouldHaveExpectedNumberOfMovesMade()
-        {
-            TurnValidator.GetNumberOfMovesSoFar().Should().Be(0);
-            TurnValidator.ThisMoveIsNotSameAsLastMove(Moves.None, Moves.Blank);
-            TurnValidator.GetNumberOfMovesSoFar().Should().Be(1);
+            MoveCategory areSame = TurnValidator.ThisMoveIsNotSameAsLastMove(previousMove, newMove);
+            areSame.Should().Be(MoveCategory.MoveIsValid);
         }
     }
 }

@@ -2,34 +2,34 @@
 
 namespace API
 {
-    public static class TurnValidator
+    internal static class TurnValidator
     {
-        private static int _numberOfTurnsSoFar;
-
-        public static InvalidMove ThisMoveIsNotSameAsLastMove(Moves lastMove, Moves thisMove)
+        public static MoveCategory ThisMoveIsNotSameAsLastMove(Moves lastMove, Moves thisMove)
         {
             if (lastMove == thisMove)
             {
                 Console.WriteLine("\nIts not your turn. Other player go... ");
-                return InvalidMove.SameMoveAsPreviousMoveError;
+                return MoveCategory.SameMoveAsPreviousMoveError;
             }
-            _numberOfTurnsSoFar++;
-            return InvalidMove.MoveIsValid;
+            return MoveCategory.MoveIsValid;
         }
 
-        public static int GetNumberOfMovesSoFar()
-        {
-            return _numberOfTurnsSoFar;
-        }
-
-        public static InvalidMove CurrentMoveIsOverwrite(Tuple<short, short> positionOnGrid)
+        public static MoveCategory CurrentMoveIsOverwrite(Tuple<short, short> positionOnGrid)
         {
             if (GridUpdater.GetValueAt(positionOnGrid) != Moves.Blank)
             {
                 Console.WriteLine("\nThat position is filled, try one of the blanks...\n");
-                return InvalidMove.PositionAlreadyFilledError;
+                return MoveCategory.PositionAlreadyFilledError;
             }
-            return InvalidMove.MoveIsValid;
+            return MoveCategory.MoveIsValid;
+        }
+
+        public static bool HasNotDrawnYet(int numberOfTurns)
+        {
+            if (numberOfTurns < 10)
+                return true;
+            Console.WriteLine("\nDraw!\n");
+            return false;
         }
     }
 }

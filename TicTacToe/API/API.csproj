@@ -44,7 +44,7 @@
     <Compile Include="Game.cs" />
     <Compile Include="Grid.cs" />
     <Compile Include="GridUpdater.cs" />
-    <Compile Include="InvalidMove.cs" />
+    <Compile Include="MoveCategory.cs" />
     <Compile Include="MoveParser.cs" />
     <Compile Include="Moves.cs" />
     <Compile Include="TurnValidator.cs" />

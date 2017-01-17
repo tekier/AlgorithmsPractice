@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Tests
 {
     [TestFixture]
-    public class MoveParserShould
+    internal class MoveParserShould
     {
         [TestCase("0 0 X", Moves.X)]
         [TestCase("0 0 O", Moves.O)]

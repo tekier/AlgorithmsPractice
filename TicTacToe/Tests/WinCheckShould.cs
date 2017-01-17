@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Tests
 {
     [TestFixture]
-    public class WinCheckShould
+    internal class WinCheckShould
     {
         [TestCase(
              new[]

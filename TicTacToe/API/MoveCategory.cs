@@ -1,6 +1,6 @@
 ﻿namespace API
 {
-    public enum InvalidMove
+    internal enum MoveCategory
     {
         IncorrectFormatError,
         PositionAlreadyFilledError,

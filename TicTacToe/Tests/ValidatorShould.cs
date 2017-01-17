@@ -5,7 +5,7 @@ using NUnit.Framework;
 namespace Tests
 {
     [TestFixture]
-    public class ValidatorShould
+    internal class ValidatorShould
     {
 
         [TestCase("0 0 X")]
@@ -14,7 +14,7 @@ namespace Tests
         public void ValidateCorrectlyFormattedUserInputs(string userInput)
         {
             var isValid = MoveValidator.ValidateInput(userInput);
-            isValid.Should().Be(InvalidMove.MoveIsValid);
+            isValid.Should().Be(MoveCategory.MoveIsValid);
         }
 
         [TestCase("red")]
@@ -26,7 +26,7 @@ namespace Tests
         public void InvalidateIncorrectlyFormattedUserInputs(string userInput)
         {
             var isValid = MoveValidator.ValidateInput(userInput);
-            isValid.Should().Be(InvalidMove.IncorrectFormatError);
+            isValid.Should().Be(MoveCategory.IncorrectFormatError);
         }
 
     }

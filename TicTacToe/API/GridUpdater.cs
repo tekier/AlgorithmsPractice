@@ -3,7 +3,7 @@ using System.Configuration;
 
 namespace API
 {
-    public static class GridUpdater
+    internal static class GridUpdater
     {
         private static readonly Grid CurrentGrid = new Grid();
 
@@ -11,41 +11,40 @@ namespace API
         {
             return CurrentGrid.GameGrid;
         }
-        
-        public static void SetGrid(Moves[] testMoves)
-        {
-            CurrentGrid.GameGrid = testMoves;
-        }
 
         public static void InsertIntoGrid(Tuple<short, short> positionOnGrid, Moves moveToAdd)
         {
-            int positionToAddTo = CalculatePosition(positionOnGrid.Item1, positionOnGrid.Item2);
-            if (moveToAdd == Moves.X)
-                CurrentGrid.GameGrid[positionToAddTo] = moveToAdd;
-            if (moveToAdd == Moves.O)
-                CurrentGrid.GameGrid[positionToAddTo] = moveToAdd;
+            CurrentGrid.GameGrid[CalculatePosition(positionOnGrid.Item1, positionOnGrid.Item2)] = moveToAdd;
         }
+
         public static Moves GetValueAt(Tuple<short, short> positionOnGrid)
         {
-            int positionToRetrieveFrom = CalculatePosition(positionOnGrid.Item1, positionOnGrid.Item2);
-            return CurrentGrid.GameGrid[positionToRetrieveFrom];
+            return CurrentGrid.GameGrid[CalculatePosition(positionOnGrid.Item1, positionOnGrid.Item2)];
         }
+
         private static int CalculatePosition(int row, int column)
         {
-            short gridSize = short.Parse(ConfigurationManager.AppSettings["grid size"]);
-            return column + row * (gridSize / short.Parse(ConfigurationManager.AppSettings["number of input elements"]));
+            var gridSizeAsString = ConfigurationManager.AppSettings["grid size"];
+            short gridSize = short.Parse(gridSizeAsString);
+            return column + row*(gridSize/short.Parse(ConfigurationManager.AppSettings["number of input elements"]));
         }
 
         public static void PrettyPrint()
         {
-            short size = short.Parse(ConfigurationManager.AppSettings["number of input elements"]);
-            for (short position = 0; position < short.Parse(ConfigurationManager.AppSettings["grid size"]); position++)
+            var gridSizeAsString = ConfigurationManager.AppSettings["grid size"];
+            var numberOfInputElementsAsStrings = ConfigurationManager.AppSettings["number of input elements"];
+            short size = short.Parse(numberOfInputElementsAsStrings);
+            for (short position = 0; position < short.Parse(gridSizeAsString); position++)
             {
-                string valueToPrint = CurrentGrid.GameGrid[position] == Moves.Blank
-                    ? "\t[ ]" + ((position + 1) % size == 0 ? "\n\n" : "")
-                    : $"\t[{CurrentGrid.GameGrid[position]}]" + ((position + 1) % size == 0 ? "\n\n" : "");
-                Console.Write(valueToPrint);
+                Console.Write(GetStringToPrint(size, position));
             }
+        }
+
+        private static string GetStringToPrint(short size, short position)
+        {
+            return CurrentGrid.GameGrid[position] == Moves.Blank
+                ? "\t[ ]" + ((position + 1)%size == 0 ? "\n\n" : "")
+                : $"\t[{CurrentGrid.GameGrid[position]}]" + ((position + 1)%size == 0 ? "\n\n" : "");
         }
     }
 }

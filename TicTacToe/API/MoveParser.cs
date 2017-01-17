@@ -2,7 +2,7 @@
 
 namespace API
 {
-    public static class MoveParser
+    internal static class MoveParser
     {
         public static Moves ExtractMove(string inputString)
         {

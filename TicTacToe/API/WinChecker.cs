@@ -2,7 +2,7 @@
 
 namespace API
 {
-    public static class WinChecker
+    internal static class WinChecker
     {
         public static bool HasWon(Moves[] input, Moves lastMove)
         {

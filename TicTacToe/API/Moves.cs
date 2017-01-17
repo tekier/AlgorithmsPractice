@@ -1,6 +1,6 @@
 ﻿namespace API
 {
-    public enum Moves
+    internal enum Moves
     {
         X, O, Blank, None
     }
