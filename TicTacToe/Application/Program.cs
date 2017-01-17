@@ -16,12 +16,12 @@ namespace Application
                 string userInput;
                 GetUserInput(out userInput);
                 Game.Apply(userInput);
-                int numberOfMovesSoFar = Game.GetNumberOfMoves();
+                int numberOfMovesSoFar = Game.NumberOfTurns;
                 Console.WriteLine($"\nNumber of moves made so far : {numberOfMovesSoFar}");
                 Game.PrintGrid();
             }
 
-            Console.WriteLine($"\nGame exhausted - {Game.GetNumberOfMoves()} moves made");
+            Console.WriteLine($"\nGame exhausted - {Game.NumberOfTurns} moves made");
             Console.Read();
         }
 

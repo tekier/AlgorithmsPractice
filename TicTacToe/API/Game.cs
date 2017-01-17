@@ -1,11 +1,13 @@
 ﻿using System;
+using System.Reflection;
+using System.Runtime.CompilerServices;
 
 namespace API
 {
     public static class Game
     {
         private static Moves _lastMove = Moves.None;
-        private static short _numberOfTurns = 0;
+        public static short NumberOfTurns { get; private set; }
 
         public static bool HasNotBeenWon()
         {
@@ -15,7 +17,7 @@ namespace API
 
         public static bool HasNotBeenDrawn()
         {
-            if (TurnValidator.HasNotDrawnYet(_numberOfTurns))
+            if (TurnValidator.HasNotDrawnYet(NumberOfTurns))
                 return true;
             return false;
         }
@@ -29,23 +31,17 @@ namespace API
 
         private static void CheckMoveIsValidAndUpdateGrid(Moves moveToAdd, Tuple<short, short> positionOnGrid)
         {
-            if (TurnValidator.ThisMoveIsNotSameAsLastMove(_lastMove, moveToAdd) == MoveCategory.MoveIsValid &&
-                TurnValidator.CurrentMoveIsOverwrite(positionOnGrid) == MoveCategory.MoveIsValid)
+            if (TurnValidator.ThisMoveIsNotSameAsLastMove(_lastMove, moveToAdd) == MoveCategory.MoveIsValid && TurnValidator.CurrentMoveIsOverwrite(positionOnGrid) == MoveCategory.MoveIsValid)
             {
                 GridUpdater.InsertIntoGrid(positionOnGrid, moveToAdd);
                 _lastMove = moveToAdd;
-                _numberOfTurns++;
+                NumberOfTurns++;
             }
         }
 
         public static void PrintGrid()
         {
             GridUpdater.PrettyPrint();
-        }
-
-        public static int GetNumberOfMoves()
-        {
-            return _numberOfTurns;
         }
 
         public static bool ValidateInput(string userInput)
