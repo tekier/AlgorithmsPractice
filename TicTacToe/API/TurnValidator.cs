@@ -14,7 +14,7 @@ namespace API
             return MoveCategory.MoveIsValid;
         }
 
-        public static MoveCategory CurrentMoveIsOverwrite(Tuple<short, short> positionOnGrid)
+        public static MoveCategory CurrentMoveIsOverwrite(Tuple<ushort, ushort> positionOnGrid)
         {
             if (GridUpdater.GetValueAt(positionOnGrid) != Moves.Blank)
             {

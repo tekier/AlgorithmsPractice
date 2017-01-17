@@ -5,8 +5,8 @@ namespace API
 {
     internal static class MoveValidator
     {
-        private static readonly int CorrectNumberOfInputElements = short.Parse(AppSettings["number of input elements"]);
-        private static readonly int MaxRangeOfInputElements = short.Parse(AppSettings["max range"]);
+        private static readonly ushort CorrectNumberOfInputElements = ushort.Parse(AppSettings["number of input elements"]);
+        private static readonly ushort MaxRangeOfInputElements = ushort.Parse(AppSettings["max range"]);
 
         public static MoveCategory ValidateInput(string userInput)
         {
@@ -19,8 +19,8 @@ namespace API
 
         private static bool FirstTwoEntriesAreInRange(string toCheck)
         {
-            var firstElementLessThanMaxValue = short.Parse(toCheck[0].ToString()) <= MaxRangeOfInputElements;
-            var secondElementLessThanMaxValue = short.Parse(toCheck[1].ToString()) <= MaxRangeOfInputElements;
+            var firstElementLessThanMaxValue = ushort.Parse(toCheck[0].ToString()) <= MaxRangeOfInputElements;
+            var secondElementLessThanMaxValue = ushort.Parse(toCheck[1].ToString()) <= MaxRangeOfInputElements;
             return firstElementLessThanMaxValue && secondElementLessThanMaxValue;
         }
 

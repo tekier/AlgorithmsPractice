@@ -12,12 +12,12 @@ namespace API
             return CurrentGrid.GameGrid;
         }
 
-        public static void InsertIntoGrid(Tuple<short, short> positionOnGrid, Moves moveToAdd)
+        public static void InsertIntoGrid(Tuple<ushort, ushort> positionOnGrid, Moves moveToAdd)
         {
             CurrentGrid.GameGrid[CalculatePosition(positionOnGrid.Item1, positionOnGrid.Item2)] = moveToAdd;
         }
 
-        public static Moves GetValueAt(Tuple<short, short> positionOnGrid)
+        public static Moves GetValueAt(Tuple<ushort, ushort> positionOnGrid)
         {
             return CurrentGrid.GameGrid[CalculatePosition(positionOnGrid.Item1, positionOnGrid.Item2)];
         }
@@ -25,7 +25,7 @@ namespace API
         private static int CalculatePosition(int row, int column)
         {
             var gridSizeAsString = ConfigurationManager.AppSettings["grid size"];
-            short gridSize = short.Parse(gridSizeAsString);
+            ushort gridSize = ushort.Parse(gridSizeAsString);
             return column + row*(gridSize/short.Parse(ConfigurationManager.AppSettings["number of input elements"]));
         }
 
@@ -33,14 +33,14 @@ namespace API
         {
             var gridSizeAsString = ConfigurationManager.AppSettings["grid size"];
             var numberOfInputElementsAsStrings = ConfigurationManager.AppSettings["number of input elements"];
-            short size = short.Parse(numberOfInputElementsAsStrings);
-            for (short position = 0; position < short.Parse(gridSizeAsString); position++)
+            ushort size = ushort.Parse(numberOfInputElementsAsStrings);
+            for (ushort position = 0; position < ushort.Parse(gridSizeAsString); position++)
             {
                 Console.Write(GetStringToPrint(size, position));
             }
         }
 
-        private static string GetStringToPrint(short size, short position)
+        private static string GetStringToPrint(ushort size, ushort position)
         {
             return CurrentGrid.GameGrid[position] == Moves.Blank
                 ? "\t[ ]" + ((position + 1)%size == 0 ? "\n\n" : "")

@@ -7,11 +7,7 @@ namespace API
         private static Moves[] _gameGrid;
         private static readonly string GridSizeAsString = ConfigurationManager.AppSettings["grid size"];
 
-        public Moves[] GameGrid
-        {
-            get { return _gameGrid; }
-            set { _gameGrid = value; }
-        }
+        public Moves[] GameGrid => _gameGrid;
 
         public Grid()
         {

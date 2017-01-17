@@ -7,7 +7,7 @@ namespace API
     public static class Game
     {
         private static Moves _lastMove = Moves.None;
-        public static short NumberOfTurns { get; private set; }
+        public static ushort NumberOfTurns { get; private set; }
 
         public static bool HasNotBeenWon()
         {
@@ -25,11 +25,11 @@ namespace API
         public static void Apply(string userInput)
         {
             Moves moveToAdd = MoveParser.ExtractMove(userInput);
-            Tuple<short, short> positionOnGrid = MoveParser.GetCoordinates(userInput);
+            Tuple<ushort, ushort> positionOnGrid = MoveParser.GetCoordinates(userInput);
             CheckMoveIsValidAndUpdateGrid(moveToAdd, positionOnGrid);
         }
 
-        private static void CheckMoveIsValidAndUpdateGrid(Moves moveToAdd, Tuple<short, short> positionOnGrid)
+        private static void CheckMoveIsValidAndUpdateGrid(Moves moveToAdd, Tuple<ushort, ushort> positionOnGrid)
         {
             if (TurnValidator.ThisMoveIsNotSameAsLastMove(_lastMove, moveToAdd) == MoveCategory.MoveIsValid && TurnValidator.CurrentMoveIsOverwrite(positionOnGrid) == MoveCategory.MoveIsValid)
             {

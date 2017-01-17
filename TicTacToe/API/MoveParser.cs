@@ -12,12 +12,12 @@ namespace API
             return Moves.X;
         }
 
-        public static Tuple<short,short> GetCoordinates(string userInput)
+        public static Tuple<ushort, ushort> GetCoordinates(string userInput)
         {
             string stringWithWhiteSpacesRemoved = GetRidOfWhiteSpaces(userInput);
-            short row = short.Parse(stringWithWhiteSpacesRemoved[0].ToString());
-            short column = short.Parse(stringWithWhiteSpacesRemoved[1].ToString());
-            return new Tuple<short, short>(row, column);
+            ushort row = ushort.Parse(stringWithWhiteSpacesRemoved[0].ToString());
+            ushort column = ushort.Parse(stringWithWhiteSpacesRemoved[1].ToString());
+            return new Tuple<ushort, ushort>(row, column);
         }
 
         private static string GetRidOfWhiteSpaces(string inputString)
